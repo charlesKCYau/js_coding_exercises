@@ -4,6 +4,12 @@
  */
 export const sumDigits = (n) => {
   if (n === undefined) throw new Error("n is required");
+  let digArr = n.toString().split("");
+  let sum = 0;
+  for (let i=0; i<digArr.length; i++) {
+    sum += parseInt(digArr[i], 10);
+  }
+  return sum;
 };
 
 /**
@@ -21,6 +27,13 @@ export const createRange = (start, end, step) => {
     console.log(
       "FYI: Optional step parameter not provided. Remove this check once you've handled the optional step!"
     );
+  let outArr = [];
+  if (step === undefined) step = 1;
+  if ((end - start) % step !== 0) throw new Error("start or end number is not correct");
+  for (let i=start; i<=end; i+=step) {
+    outArr.push(i);
+  }
+  return outArr;
 };
 
 /**
@@ -55,6 +68,7 @@ export const createRange = (start, end, step) => {
 export const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+  return true;
 };
 
 /**
@@ -69,6 +83,7 @@ export const getScreentimeAlertList = (users, date) => {
  */
 export const hexToRGB = (hexStr) => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+  return true;
 };
 
 /**
@@ -83,4 +98,5 @@ export const hexToRGB = (hexStr) => {
  */
 export const findWinner = (board) => {
   if (board === undefined) throw new Error("board is required");
+  return true;
 };
