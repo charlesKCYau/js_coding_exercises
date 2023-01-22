@@ -6,6 +6,13 @@
  */
 export const sumMultiples = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
+  if (! Array.isArray(arr)) throw new Error("array is required");
+  let sum = 0;
+  for (let i=0; i<arr.length; i++) {
+    if (arr[i] % 3 === 0 || arr[i] % 5 === 0)
+      sum += arr[i];
+  }
+  return sum;
 };
 
 /**
@@ -15,6 +22,9 @@ export const sumMultiples = (arr) => {
  */
 export const isValidDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
+  let found = false;
+  if (str.indexOf("C") >= 0 || str.indexOf("G") >= 0 || str.indexOf("T") >= 0 || str.indexOf("A") >= 0 ) found = true;
+  return found;
 };
 
 /**
@@ -24,6 +34,9 @@ export const isValidDNA = (str) => {
  */
 export const getComplementaryDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
+  let firstStr = str.replace("T", "B").replace("C", "H");
+  let secondStr = firstStr.replace("A", "T").replace("G", "C");
+  return secondStr.replace("B", "A").replace("H", "G");
 };
 
 /**
@@ -33,6 +46,14 @@ export const getComplementaryDNA = (str) => {
  */
 export const isItPrime = (n) => {
   if (n === undefined) throw new Error("n is required");
+  let flag = true;
+  for (let i=2; i < n/2; i++) {
+    if (n % i === 0) {
+       flag = false;
+       break;
+    }
+  }
+  return flag;
 };
 
 /**
@@ -49,6 +70,18 @@ export const isItPrime = (n) => {
 export const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+
+  let outerArr = [];
+
+  for (let i=0; i<n; i++) {
+    let innerArr = [];
+
+    for (let j=0; j<n; j++) {
+      innerArr.push(fill);
+    }
+    outerArr.push(innerArr);
+  }
+  return outerArr;
 };
 
 /**
@@ -66,4 +99,5 @@ export const createMatrix = (n, fill) => {
 export const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+  return true;
 };
