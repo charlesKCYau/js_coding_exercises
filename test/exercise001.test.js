@@ -39,9 +39,13 @@ describe("generateInitials", () => {
   test("empty string", () => {
     expect(generateInitials("", "")).toBe(".");
   });
+
+  test("2 spaces", () => {
+    expect(generateInitials(" ", " ")).toBe(" . ");
+  });
 });
 
-xdescribe("addVAT", () => {
+describe("addVAT", () => {
   test("adds a VAT of 20% to a price of 100", () => {
     expect(addVAT(100, 20)).toBe(120);
   });
@@ -57,9 +61,13 @@ xdescribe("addVAT", () => {
   test("adds a VAT of 0% to a price of 25", () => {
     expect(addVAT(25, 0)).toBe(25);
   });
+
+  test("adds a VAT of 0% to a price of 0", () => {
+    expect(addVAT(0, 0)).toBe(0);
+  });
 });
 
-xdescribe("getSalePrice", () => {
+describe("getSalePrice", () => {
   test("reduces a price of 100 by 50%", () => {
     expect(getSalePrice(100, 50)).toBe(50);
   });
@@ -75,9 +83,14 @@ xdescribe("getSalePrice", () => {
   test("reduces a price of 50 by 0%", () => {
     expect(getSalePrice(50, 0)).toBe(50);
   });
+
+  test("reduces a price of 0 by 0%", () => {
+    expect(addVAT(0, 0)).toBe(0);
+  });
+
 });
 
-xdescribe("getMiddleCharacter", () => {
+describe("getMiddleCharacter", () => {
   test("returns the middle character from a string of odd length", () => {
     expect(getMiddleCharacter("bears!!!!")).toBe("s");
   });
@@ -85,9 +98,13 @@ xdescribe("getMiddleCharacter", () => {
   test("returns the middle 2 characters from a string of even length", () => {
     expect(getMiddleCharacter("help!!")).toBe("lp");
   });
+
+  test("returns empty from empty string", () => {
+    expect(getMiddleCharacter("")).toBe("");
+  });
 });
 
-xdescribe("reverseWord", () => {
+describe("reverseWord", () => {
   test("returns the provided word, reversed", () => {
     expect(reverseWord("foo")).toBe("oof");
   });
@@ -97,9 +114,13 @@ xdescribe("reverseWord", () => {
       "?siht od ot tnaw neve uoy dluow yhw"
     );
   });
+
+  test("returns empty from empty string, reversed", () => {
+    expect(reverseWord("")).toBe("");
+  });
 });
 
-xdescribe("reverseAllWords", () => {
+describe("reverseAllWords", () => {
   test("reverses a single word in an array", () => {
     expect(reverseAllWords(["jest"])).toEqual(["tsej"]);
   });
@@ -109,9 +130,15 @@ xdescribe("reverseAllWords", () => {
       reverseAllWords(["jest", "mocha", "rspec", "jasmine", "selenium"])
     ).toEqual(["tsej", "ahcom", "cepsr", "enimsaj", "muineles"]);
   });
+
+  test("reverses empty array", () => {
+    expect(
+      reverseAllWords([])
+    ).toEqual([]);
+  });
 });
 
-xdescribe("countLinuxUsers", () => {
+describe("countLinuxUsers", () => {
   test("returns 0 if no Linux users found", () => {
     const users = [
       { name: "Heather", OS: "Windows 8", type: "Windows" },
@@ -134,9 +161,14 @@ xdescribe("countLinuxUsers", () => {
     ];
     expect(countLinuxUsers(users)).toBe(5);
   });
+
+  test("returns 0 if empty array", () => {
+    const users = [];
+    expect(countLinuxUsers(users)).toBe(0);
+  });
 });
 
-xdescribe("getMeanScore", () => {
+describe("getMeanScore", () => {
   test("returns the mean score from an array of scores", () => {
     expect(getMeanScore([8, 9, 7])).toBe(8);
     expect(getMeanScore([88, 86, 93])).toBe(89);
@@ -147,7 +179,7 @@ xdescribe("getMeanScore", () => {
   });
 });
 
-xdescribe("simpleFizzBuzz", () => {
+describe("simpleFizzBuzz", () => {
   test("returns 'fizz' if the number is divisible by 3", () => {
     expect(simpleFizzBuzz(3)).toBe("fizz");
   });
