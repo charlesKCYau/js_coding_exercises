@@ -23,6 +23,11 @@ describe("camelCaseWords", () => {
       "isHigherThanMinNumber"
     );
   });
+
+  test("camel cases a single word (i.e. capital letter at beginning)", () => {
+    expect(camelCaseWords(["My"])).toBe("my");
+  });
+
 });
 
 describe("getSquares", () => {
