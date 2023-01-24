@@ -1,11 +1,7 @@
 export function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
   if (! Array.isArray(nums)) throw new Error("array is required");
-  let newArray = [];
-  for (let i=0; i<nums.length; i++) {
-    newArray.push(Math.pow(nums[i],2));
-  }
-  return newArray;
+  return nums.map(n => n*n);
 }
 
 export function camelCaseWords(words) {
