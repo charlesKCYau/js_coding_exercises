@@ -64,12 +64,6 @@ export const getWordFrequencies = (str) => {
   let noSpecialChars = str.replace(/[^a-zA-Z0-9 ]/g, '');
   let wordArr = noSpecialChars.split(" ");
   wordArr = wordArr.map(word => word.toLowerCase());
-  // const newArray = [];
-  // wordArr.forEach(element => {
-  //   newArray.push(element.toLowerCase());
-  // });
-
-  // return null;
   let map = wordArr.reduce((cnt, cur) => (cnt[cur] = cnt[cur] + 1 || 1, cnt), {});
   return map;
 };

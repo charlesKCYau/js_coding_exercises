@@ -7,16 +7,9 @@ export function getSquares(nums) {
 export function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
   if (! Array.isArray(words)) throw new Error("array is required");
-  let output ="";
-  for (let i=0; i<words.length; i++) {
-    if (i === 0) {
-      output += words[i].substr(0,1).toLowerCase() + words[i].substr(1,words[i].length);
-    } else {
-      output += words[i].substr(0,1).toUpperCase() + words[i].substr(1,words[i].length);
-    }
-  }
-  return output;
-  
+  const upperWord = words.map(w => w.substr(0,1).toUpperCase() + w.substr(1,w.length));
+  const concatWord = upperWord.join("");
+  return concatWord.substr(0,1).toLowerCase() + concatWord.substr(1,concatWord.length);
 }
 
 export function getTotalSubjects(people) {
