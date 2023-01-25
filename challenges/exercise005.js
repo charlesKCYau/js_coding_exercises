@@ -35,7 +35,7 @@ export const sumArrays = (arrs) => {
 export const arrShift = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
   if (! Array.isArray(arr)) throw new Error("array is required");
-  let newArray = [];
+  const newArray = [];
   if (arr.length < 2) {
     return arr;
   } else {
@@ -65,7 +65,7 @@ export const getWordFrequencies = (str) => {
   if (str === undefined) throw new Error("str is required");
   let noSpecialChars = str.replace(/[^a-zA-Z0-9 ]/g, '');
   let wordArr = noSpecialChars.split(" ");
-  let newArray = [];
+  const newArray = [];
   wordArr.forEach(element => {
     newArray.push(element.toLowerCase());
   });
