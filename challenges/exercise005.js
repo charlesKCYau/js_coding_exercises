@@ -54,8 +54,6 @@ export const findNeedle = (haystack, searchTerm) => {
   if (searchTerm === undefined) throw new Error("searchTerm is required");
   let found = false;
   for (const [key, value] of Object.entries(haystack)) {
-    console.log(`${value}`.toUpperCase());
-
     if (`${value}`.toUpperCase().indexOf(searchTerm.toUpperCase()) >= 0 ) found = true;
   }
   return found;
@@ -65,10 +63,13 @@ export const getWordFrequencies = (str) => {
   if (str === undefined) throw new Error("str is required");
   let noSpecialChars = str.replace(/[^a-zA-Z0-9 ]/g, '');
   let wordArr = noSpecialChars.split(" ");
-  const newArray = [];
-  wordArr.forEach(element => {
-    newArray.push(element.toLowerCase());
-  });
+  wordArr = wordArr.map(word => word.toLowerCase());
+  // const newArray = [];
+  // wordArr.forEach(element => {
+  //   newArray.push(element.toLowerCase());
+  // });
 
-  return null;
+  // return null;
+  let map = wordArr.reduce((cnt, cur) => (cnt[cur] = cnt[cur] + 1 || 1, cnt), {});
+  return map;
 };
