@@ -17,11 +17,7 @@ export function getBusNumbers(people) {
 export function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
   if (! Array.isArray(arr)) throw new Error("array is required");
-  let shpCnt = 0;
-  for (let i=0; i<arr.length; i++) {
-     if (arr[i] === "sheep") shpCnt++;
-  }
-  return shpCnt;
+  return arr.filter(item => item === 'sheep').length;
 
 }
 
