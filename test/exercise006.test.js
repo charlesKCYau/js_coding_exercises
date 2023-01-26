@@ -11,6 +11,14 @@ import {
     test("returns the sum of any numbers which are a multiple of 3 or 5", () => {
       expect(sumMultiples([1, 2, 3, 4, 5, 6])).toBe(14);
     });
+
+    test("returns 0 as without multiple of 3 or 5", () => {
+      expect(sumMultiples([1, 2, 4])).toBe(0);
+    });
+
+    test("returns 0 as empty array", () => {
+      expect(sumMultiples([])).toBe(0);
+    });
   });
   
   describe("isValidDNA", () => {

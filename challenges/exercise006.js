@@ -7,12 +7,8 @@
 export const sumMultiples = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
   if (! Array.isArray(arr)) throw new Error("array is required");
-  let sum = 0;
-  for (let i=0; i<arr.length; i++) {
-    if (arr[i] % 3 === 0 || arr[i] % 5 === 0)
-      sum += arr[i];
-  }
-  return sum;
+  const filter = arr.filter(n => n % 3 === 0 || n % 5 === 0);
+  return filter.reduce((acc, cur) => acc += cur, 0);
 };
 
 /**
