@@ -8,13 +8,7 @@ export function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
   if (! Array.isArray(names)) throw new Error("array is required");
-  const newArray = [];
-  for (let i=0; i<names.length; i++) {
-    if (names[i].substr(0,1) === char) {
-      newArray.push(names[i]);
-    }
-  }
-  return newArray;
+  return names.filter(n => n.substr(0,1) === char);
 }
 
 export function findVerbs(words) {
