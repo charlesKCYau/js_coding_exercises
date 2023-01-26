@@ -32,11 +32,6 @@ export function getCities(users) {
 export function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
   if (! Array.isArray(nums)) throw new Error("array is required");
-  // const newArray = [];
-  // for (let i=0; i<nums.length; i++) {
-  //   newArray.push(parseFloat(Math.sqrt(nums[i]).toFixed(2)));
-  // }
-  // return newArray;
   return nums.map(n => parseFloat(Math.sqrt(n).toFixed(2)))
 }
 
@@ -44,13 +39,7 @@ export function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
   if (! Array.isArray(sentences)) throw new Error("array is required");
-  const newArray = [];
-  for (let i=0; i<sentences.length; i++) {
-    if (sentences[i].toUpperCase().includes(str.toUpperCase())){
-      newArray.push(sentences[i]);
-    }      
-  }
-  return newArray;
+  return sentences.filter(s => s.toUpperCase().includes(str.toUpperCase()));
 }
 
 export function getLongestSides(triangles) {
