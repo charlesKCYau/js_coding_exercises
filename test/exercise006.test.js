@@ -60,6 +60,19 @@ import {
             ["foo", "foo", "foo"]
         ]
       );
+
+      expect(createMatrix(2, "foo")).toEqual(
+        [
+            ["foo", "foo"],
+            ["foo", "foo"]
+        ]
+      );
+
+      expect(createMatrix(1, "foo")).toEqual(
+        [
+            ["foo"]
+        ]
+      );
     });
   
   });
