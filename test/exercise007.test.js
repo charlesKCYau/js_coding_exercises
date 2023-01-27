@@ -7,7 +7,7 @@ import {
 } from "../challenges/exercise007";
   
   describe("sumDigits", () => {
-    test("returns the sum of any numbers which are a multiple of 3 or 5", () => {
+    test("returns the sum of all its digits", () => {
       expect(sumDigits(1234)).toBe(10);
     });
   });

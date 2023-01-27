@@ -5,11 +5,12 @@
 export const sumDigits = (n) => {
   if (n === undefined) throw new Error("n is required");
   let digArr = n.toString().split("");
-  let sum = 0;
-  for (let i=0; i<digArr.length; i++) {
-    sum += parseInt(digArr[i], 10);
-  }
-  return sum;
+  // let sum = 0;
+  // for (let i=0; i<digArr.length; i++) {
+  //   sum += parseInt(digArr[i], 10);
+  // }
+  // return sum;
+  return digArr.map(d => parseInt(d, 10)).reduce((acc, cur) => acc += cur, 0);
 };
 
 /**
