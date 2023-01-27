@@ -28,6 +28,7 @@ export const isValidDNA = (str) => {
  */
 export const getComplementaryDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
+  if (! isValidDNA(str)) throw new Error("the string is not valid DNA");
   let firstStr = str.replace("T", "B").replace("C", "H");
   let secondStr = firstStr.replace("A", "T").replace("G", "C");
   return secondStr.replace("B", "A").replace("H", "G");
