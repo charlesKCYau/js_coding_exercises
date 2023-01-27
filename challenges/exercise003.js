@@ -38,11 +38,7 @@ export function duplicateNumbers(arr1, arr2) {
   if (arr2 === undefined) throw new Error("arr2 is required");
   if (! Array.isArray(arr1)) throw new Error("array is required");
   if (! Array.isArray(arr2)) throw new Error("array is required");
-  const newArray = [];
-  for (let i=0; i<arr1.length; i++) {
-    if (arr2.includes(arr1[i]) && ! newArray.includes(arr1[i])) {
-      newArray.push(arr1[i]);
-    }
-  }
-  return newArray.sort();
+  const filter = arr1.filter(a => arr2.includes(a));
+  const uniq = [...new Set(filter)];
+  return uniq.sort();
 }
