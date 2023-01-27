@@ -26,11 +26,7 @@ export function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
   if (! Array.isArray(menu)) throw new Error("array is required");
-  let found = false;
-  for (let i=0; i<menu.length; i++) {
-     if (menu[i].ingredients.includes(ingredient)) found = true;
-  }
-  return found;
+  return menu.filter(m => m.ingredients.includes(ingredient)).length > 0;
 }
 
 export function duplicateNumbers(arr1, arr2) {
