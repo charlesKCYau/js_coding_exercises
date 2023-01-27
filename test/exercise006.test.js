@@ -78,9 +78,37 @@ import {
   });
   
   describe("areWeCovered", () => {
-    test("returns an array with the first and last items swapped", () => {
-        expect(areWeCovered([], "Sunday")).toEqual(true);
-      });
+    test("returns true if there are num of staff >= 3", () => {
+      expect(areWeCovered([
+        { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+        { name: "Pedro", rota: ["Saturday", "Monday", "Tuesday", "Wednesday"] },
+        { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
+        { name: "Peppa", rota: ["Sunday", "Tuesday", "Wednesday"] }
+      ], "Tuesday")).toEqual(true);
+      
+      expect(areWeCovered([
+        { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+        { name: "Pedro", rota: ["Saturday", "Monday", "Tuesday", "Wednesday"] },
+        { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
+        { name: "Peppa", rota: ["Sunday", "Tuesday", "Wednesday"] }
+      ], "Wednesday")).toEqual(true);
     });
+
+    test("returns false if there are num of staff <>> 3", () => {
+      expect(areWeCovered([
+        { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+        { name: "Pedro", rota: ["Monday", "Tuesday", "Wednesday"] },
+        { name: "Pedro", rota: ["Tuesday", "Wednesday"] },
+        { name: "Peppa", rota: ["Tuesday", "Wednesday"] }
+      ], "Friday")).toEqual(false);
+      
+      expect(areWeCovered([
+        { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+        { name: "Pedro", rota: ["Monday", "Tuesday", "Wednesday"] },
+        { name: "Pedro", rota: ["Tuesday", "Wednesday"] },
+        { name: "Peppa", rota: ["Tuesday", "Wednesday"] }
+      ], "Thursday")).toEqual(false);
+    });
+  });
   
   

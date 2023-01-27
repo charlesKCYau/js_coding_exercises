@@ -84,5 +84,9 @@ export const createMatrix = (n, fill) => {
 export const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
-  return true;
+  const mergedRota = [];
+  for (let i=0; i<staff.length; i++) {
+    mergedRota.push.apply(mergedRota, staff[i].rota);
+  }
+  return mergedRota.filter(mr => mr === day).length >=3;
 };
