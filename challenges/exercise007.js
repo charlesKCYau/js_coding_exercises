@@ -5,11 +5,6 @@
 export const sumDigits = (n) => {
   if (n === undefined) throw new Error("n is required");
   let digArr = n.toString().split("");
-  // let sum = 0;
-  // for (let i=0; i<digArr.length; i++) {
-  //   sum += parseInt(digArr[i], 10);
-  // }
-  // return sum;
   return digArr.map(d => parseInt(d, 10)).reduce((acc, cur) => acc += cur, 0);
 };
 
@@ -69,7 +64,20 @@ export const createRange = (start, end, step) => {
 export const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
-  return true;
+  if (! Array.isArray(users)) throw new Error("array is required");
+  let newArray = [];
+  for (let i=0; i<users.length; i++) {
+    for (let j=0; j<users[i].screenTime.length; j++) {
+      if(users[i].screenTime[j].date === date) {
+        let totalTime = 0;
+        for (const property in users[i].screenTime[j].usage) {
+          totalTime += `${users[i].screenTime[j].usage[property]}`;
+        }
+        if (totalTime > 100) newArray.push(users[i].username);
+      }
+    }    
+  }
+  return newArray;
 };
 
 /**
