@@ -92,7 +92,9 @@ export const getScreentimeAlertList = (users, date) => {
  */
 export const hexToRGB = (hexStr) => {
   if (hexStr === undefined) throw new Error("hexStr is required");
-  return true;
+  if (! hexStr.substr(0,1) === "#" || ! hexStr.length === 7) throw new Error("hexStr is required");
+  if ( hexStr.substr(1, 7).split("").filter(element => "0123456789ABCDEF".includes(element)).length !== 6) throw new Error("#FF1133 format is required");
+  return `rgb(${parseInt(hexStr.substr(1, 2), 16)},${parseInt(hexStr.substr(3, 2), 16)},${parseInt(hexStr.substr(5, 2), 16)})`;
 };
 
 /**

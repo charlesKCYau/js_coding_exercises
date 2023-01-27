@@ -101,10 +101,11 @@ import {
   });
   
   describe("hexToRGB", () => {
-    test("returns true ", () => {
-        expect(hexToRGB("")).toBe(true);
+    test("returns positive case ", () => {
+      expect(hexToRGB("#FF1133")).toBe("rgb(255,17,51)");
+      expect(hexToRGB("#FFFFFF")).toBe("rgb(255,255,255)");
+      expect(hexToRGB("#000000")).toBe("rgb(0,0,0)");
     });
-
   });
   
   describe("findWinner", () => {
