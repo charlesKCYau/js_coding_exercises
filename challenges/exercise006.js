@@ -18,9 +18,7 @@ export const sumMultiples = (arr) => {
  */
 export const isValidDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
-  let found = false;
-  if (str.indexOf("C") >= 0 || str.indexOf("G") >= 0 || str.indexOf("T") >= 0 || str.indexOf("A") >= 0 ) found = true;
-  return found;
+  return str.split("").filter(s => "CTAG".includes(s)).length > 0;
 };
 
 /**
