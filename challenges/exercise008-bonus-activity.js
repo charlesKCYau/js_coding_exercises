@@ -25,5 +25,11 @@ export function splitThatString(string) {
 
 export function addressLookUp(user) {
   if (!user) throw new Error("user is required");
-  // Your solution using optional chaining here!
+  for (const [key] of Object.entries(user)) {
+    console.log(key);
+    if (`${key}` === "address") {
+      return user.address.postcode;
+    }
+  }
+  return undefined;
 }

@@ -53,7 +53,7 @@ describe("splitThatString", () => {
 
 // Optional Chaining
 
-xdescribe("addressLookUp", () => {
+describe("addressLookUp", () => {
   test("returns a users postcode", () => {
     const user = {
       name: "JimBob Eggs",
