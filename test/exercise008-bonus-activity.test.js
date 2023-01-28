@@ -13,7 +13,7 @@ describe("colours", () => {
   });
 });
 
-xdescribe("shoppingList", () => {
+describe("shoppingList", () => {
   test("returns a list with an extra item", () => {
     const list = ["one apple", "two dozen organic eggs", "cucumber", "bread"];
     const newItem = ["earl grey tea"];
