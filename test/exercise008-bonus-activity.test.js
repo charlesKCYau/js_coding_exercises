@@ -33,14 +33,14 @@ describe("shoppingList", () => {
   });
 });
 
-xdescribe("highestNumber", () => {
+describe("highestNumber", () => {
   test("returns the highest number", () => {
     const numbers = [12, 20, 18];
     expect(highestNumber(numbers)).toEqual(20);
   });
 });
 
-xdescribe("splitThatString", () => {
+describe("splitThatString", () => {
   test("returns a string split up", () => {
     const string = "USA";
     expect(splitThatString(string)).toEqual(["U", "S", "A"]);
