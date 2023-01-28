@@ -109,5 +109,26 @@ export const hexToRGB = (hexStr) => {
  */
 export const findWinner = (board) => {
   if (board === undefined) throw new Error("board is required");
-  return true;
+  if (! Array.isArray(board)) throw new Error("array is required");
+  const xCoor = [];
+  const oCoor = [];
+  for (let i=0; i<3; i++) {
+    for (let j=0; j<3; j++) {
+      if (board[i][j] === "X") xCoor.push([i, j]);
+      if (board[i][j] === "0") oCoor.push([i, j]);
+    }
+  }
+  if (xCoor.length > 3 || oCoor.length > 3 ) throw new Error("X or 0 can't more than 3 times");
+  if (xCoor[0][0] === xCoor[1][0] && xCoor[1][0] === xCoor[2][0]) return "X"; //3 times horizontal
+  if (xCoor[0][1] === xCoor[1][1] && xCoor[1][1] === xCoor[2][1]) return "X"; //3 times vertical
+  if (xCoor[0] === [0, 0] && xCoor[1] === [1, 1] && xCoor[2] === [2, 2]) return "X"; //diagonal
+  if (xCoor[0] === [2, 0] && xCoor[1] === [1, 1] && xCoor[2] === [0, 2]) return "X"; //diagonal
+  
+  if (oCoor[0][0] === oCoor[1][0] && oCoor[1][0] === oCoor[2][0]) return "0"; //3 times horizontal
+  if (oCoor[0][1] === oCoor[1][1] && oCoor[1][1] === oCoor[2][1]) return "0"; //3 times vertical
+  if (oCoor[0] === [0, 0] && oCoor[1] === [1, 1] && oCoor[2] === [2, 2]) return "0"; //diagonal
+  if (oCoor[0] === [2, 0] && oCoor[1] === [1, 1] && oCoor[2] === [0, 2]) return "0"; //diagonal
+  
+  
+  return null; //else
 };

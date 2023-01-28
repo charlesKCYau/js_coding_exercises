@@ -109,11 +109,44 @@ import {
   });
   
   describe("findWinner", () => {
-    test("returns an array with the first and last items swapped", () => {
-      expect(findWinner([])).toEqual(true);
+    test("returns winner for vertical case", () => {
+      expect(findWinner(
+        [
+         ["X", "0", null],
+         ["X", null, "0"],
+         ["X", null, "0"]
+        ]       
+      )).toEqual("X");
+
+      expect(findWinner(
+        [
+         [null, "X", "0"],
+         ["X", null, "0"],
+         ["X", null, "0"]
+        ]       
+      )).toEqual("0");
     });
-  
-  });
+
+    test("returns winner for horizontal case", () => {
+      expect(findWinner(
+        [
+        ["X", "X", "X"],
+        ["0", null, "0"],
+        [null, null, "0"]
+        ]       
+      )).toEqual("X");
+    });
+
+    test("returns null for no winner case", () => {
+        expect(findWinner(
+          [
+          ["X", "X", null],
+          ["0", null, "0"],
+          [null, "X", "0"]
+          ]       
+        )).toEqual(null);
+    });
+});
   
   
   
